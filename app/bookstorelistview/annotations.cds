@@ -1,8 +1,19 @@
 using BookstoreService as service from '../../srv/service';
+
 annotate service.Books with @(
     UI.FieldGroup #GeneratedGroup : {
         $Type : 'UI.FieldGroupType',
         Data : [
+            {
+                $Type : 'UI.DataField',
+                Value : title,
+                Label : 'Title',
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : genre,
+                Label : 'Genre',
+            },
             {
                 $Type : 'UI.DataField',
                 Label : 'Published At',
