@@ -141,7 +141,8 @@
           "options": {
             "settings": {
               "editableHeaderContent": false,
-              "contextPath": "/Books"
+              "contextPath": "/Books",
+              "sectionLayout": "Page"
             }
           }
         }
