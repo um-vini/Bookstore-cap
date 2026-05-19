@@ -1,6 +1,11 @@
-ID,title,author_ID,genre,publishedAt,pages,price,stock,status_code,createdAt,createdBy,modifiedAt,modifiedBy
-a1b2c3d4-e5f6-47a8-b9c0-111111111111,Dom Casmurro,7f3b8b1a-1234-4bc2-8aef-111111111111,Romance,1899-01-01,256,49.90,15,A,2026-05-18T12:30:00Z,admin,2026-05-18T12:30:00Z,admin
-b2c3d4e5-f6a7-48b9-c0d1-222222222222,A Hora da Estrela,8a2c9c2b-5678-4cd3-9bfa-222222222222,Drama,1977-10-26,104,39.90,2,L,2026-05-18T12:35:00Z,admin,2026-05-18T12:35:00Z,admin
-c3d4e5f6-a7b8-49c9-d0e1-333333333333,1984,9b3d0d3c-9012-4ef4-acfb-333333333333,Distopia,1949-06-08,328,54.90,0,U,2026-05-18T12:40:00Z,admin,2026-05-18T12:40:00Z,admin
-d4e5f6a7-b8c9-40da-e1f2-444444444444,O Hobbit,0c4e1e4d-3456-40a5-bd0c-444444444444,Fantasia,1937-09-21,310,69.90,45,A,2026-05-18T12:45:00Z,admin,2026-05-18T12:45:00Z,admin
-e5f6a7b8-c9d0-41db-f2a3-555555555555,O Iluminado,1d5f2f5e-7890-41b6-ce1d-555555555555,Terror,1977-01-28,464,59.90,1,L,2026-05-18T12:50:00Z,admin,2026-05-18T12:50:00Z,admin
+ID,title,author_ID,genre_code,publishedAt,pages,price,currency_code,stock,status_code,createdAt,createdBy,modifiedAt,modifiedBy
+57697915-7d36-43c3-a875-1d5e711d536b,"The Silent Forest",8f7cb3c1-9a52-4e63-8b7b-fcf4e2a0d234,"Fiction","2018-04-12",340,49.99,INR,25,A,"2025-01-01T09:00:00Z","SYSTEM","2025-01-01T09:00:00Z","SYSTEM"
+8b1d4b6d-2c5f-4c1c-ac20-e6a6e022f5b8,"A Brief History of Space",c2ee8f8a-07bb-4272-bc4b-9f6a52fb114d,"Science","2021-09-01",280,69.99,INR,8,L,"2025-01-01T09:05:00Z","SYSTEM","2025-01-01T09:05:00Z","SYSTEM"
+b3c97c1f-2e82-4c5d-9f63-45de1c72bb7d,"Cooking with Fire",a5d9eb73-4f7a-49b2-9515-fbc9f91cb9ed,"Cooking","2020-02-17",220,39.99,INR,0,U,"2025-01-01T09:10:00Z","SYSTEM","2025-01-01T09:10:00Z","SYSTEM"
+c4f87443-9b2d-4b6e-a1e1-a65d6f47a6c5,"Winds of the North",fa33a1e1-9141-4457-9b01-0f01dd7a2ff9,"Fantasy","2019-11-03",410,59.90,INR,15,A,"2025-01-01T09:15:00Z","SYSTEM","2025-01-01T09:15:00Z","SYSTEM"
+2f0e3a28-2902-40bf-9a19-e0bff621adfb,"Gardening for Beginners",4fbd2df0-edf5-4df0-bc37-27fb07c36a1a,"Hobby","2022-06-22",180,34.50,INR,5,L,"2025-01-01T09:20:00Z","SYSTEM","2025-01-01T09:20:00Z","SYSTEM"
+94a7c74a-57a0-4e13-9ff8-33a89f92aa3d,"The Lost Empire",97c083c7-b524-4b84-9cc9-866d1d79eca1,"Adventure","2017-08-14",360,54.99,INR,0,U,"2025-01-01T09:25:00Z","SYSTEM","2025-01-01T09:25:00Z","SYSTEM"
+dcd30d22-0bd8-4ea2-b5ba-84e27bd97558,"Mindful Living",1d8c658a-3b8f-4a32-b74e-d207c1ff8152,"Self-Help","2023-03-02",250,42.00,INR,12,A,"2025-01-01T09:30:00Z","SYSTEM","2025-01-01T09:30:00Z","SYSTEM"
+636fa2f7-1dfb-4926-afaf-7ae1716e998b,"The Ocean Below",4a8fae3c-16d6-4a83-8311-5a7bc2c71aaf,"Non-Fiction","2021-12-09",310,64.90,INR,6,L,"2025-01-01T09:35:00Z","SYSTEM","2025-01-01T09:35:00Z","SYSTEM"
+0eacb82f-8765-46ef-9b41-21ba9c9f3df1,"Secrets of Architecture",be73e4f9-e80d-48b0-8b7f-e08e90a1dbe8,"Art","2016-05-27",295,79.00,INR,3,L,"2025-01-01T09:40:00Z","SYSTEM","2025-01-01T09:40:00Z","SYSTEM"
+c92dfd60-8831-4c0d-b88f-19e0fd4e4df3,"Deep Sea Tales",8f7cb3c1-9a52-4e63-8b7b-fcf4e2a0d234,"Children","2024-01-11",150,29.99,INR,20,A,"2025-01-01T09:45:00Z","SYSTEM","2025-01-01T09:45:00Z","SYSTEM"
