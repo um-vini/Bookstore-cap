@@ -1,5 +1,6 @@
-using {tutorial.db as db} from '../db/schema';
+using {bookshop.db as db} from '../db/schema';
 
+// Service definition
 service BookstoreService {
 
     // Security
@@ -13,18 +14,18 @@ service BookstoreService {
             to   : 'authenticated-user'
         }
     ])
+
     entity Books      as
         projection on db.Books {
             * // Project all data
-
         }
-
         // excluding {
         //     createdAt,
         //     createdBy,
         //     modifiedAt,
         //     modifiedBy
         // }
+        
         // Bound actions linked to the entity Books
         actions {
 

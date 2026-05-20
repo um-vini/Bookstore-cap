@@ -4,17 +4,21 @@ using {
     sap.common.Currencies
 } from '@sap/cds/common';
 
-namespace tutorial.db;
+namespace bookshop.db;
 
+// Domain model
 entity Books : cuid, managed {
-    title       : String;
-    author      : Association to Authors;
+    title       : String                 @mandatory;
+    author      : Association to Authors @mandatory;
     genre       : Association to Genres;
     publishedAt : Date;
     pages       : Integer;
     price       : Decimal(10, 2);
-    currency    : Association to Currencies;
-    stock       : Integer;
+    currency    : Association to Currencies; // type Currencies from @sap/cds/common
+    stock       : Integer                @assert.range: [
+        0,
+        _
+    ];
     status      : Association to BookStatus;
     // Composition from books to chapters
     Chapters    : Composition of many Chapters
@@ -52,11 +56,10 @@ type BookStatusCode : String(1) enum {
 }
 
 entity Authors : cuid, managed {
-    name              : String;
+    name              : String @mandatory;
     books             : Association to many Books
-                            on books.author = $self;
+                            on books.author = $self; // Books table keeps the information
     virtual bookCount : Integer;
-
 }
 
 entity Chapters : cuid, managed {
