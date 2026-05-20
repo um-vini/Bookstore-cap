@@ -127,6 +127,7 @@ annotate service.Books with @(
         },
 
     ],
+
     UI.SelectionFields             : [status_code, ],
     UI.HeaderInfo                  : {
         TypeName      : 'Book',

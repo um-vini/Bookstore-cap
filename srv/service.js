@@ -1,5 +1,5 @@
 const cds = require('@sap/cds');
-const { Books } = require('#cds-models/BookstoreService');
+const { Books, Authors } = require('#cds-models/BookstoreService');
 
 module.exports = class BookstoreService extends cds.ApplicationService {
   init() {
@@ -54,7 +54,27 @@ module.exports = class BookstoreService extends cds.ApplicationService {
 
     //Virtual fields always afeter the after handlers
     this.after('READ', Books, async (books, req) => {
-      console.log('AQUIIIII', books);
+      const author = books[0].author?.ID;
+      console.log('2', author);
+
+      if (!author) {
+        return;
+      }
+
+      const bookCounts = await SELECT.from(Books)
+        .columns('author_ID', { func: 'count' })
+        .where({ author_ID: author })
+        .groupBy('author_ID');
+
+      console.log('3', bookCounts);
+
+      const booksTotal = bookCounts.length > 0 ? bookCounts[0].count : 0;
+
+      for (const book of books) {
+        if (book.author && book.author.ID === author) {
+          book.author.bookCount = booksTotal;
+        }
+      }
     });
 
     return super.init();

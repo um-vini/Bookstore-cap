@@ -16,6 +16,7 @@ service BookstoreService {
     entity Books      as
         projection on db.Books {
             * // Project all data
+
         }
 
         // excluding {
