@@ -8,14 +8,14 @@ namespace bookshop.db;
 
 // Domain model
 entity Books : cuid, managed {
-    title       : String                 @mandatory;
-    author      : Association to Authors @mandatory;
+    title       : String  @mandatory;
+    author      : Association to Authors;
     genre       : Association to Genres;
     publishedAt : Date;
     pages       : Integer;
     price       : Decimal(10, 2);
     currency    : Association to Currencies; // type Currencies from @sap/cds/common
-    stock       : Integer                @assert.range: [
+    stock       : Integer @assert.range: [
         0,
         _
     ];
@@ -56,10 +56,10 @@ type BookStatusCode : String(1) enum {
 }
 
 entity Authors : cuid, managed {
-    name              : String @mandatory;
-    books             : Association to many Books
-                            on books.author = $self; // Books table keeps the information
-    virtual bookCount : Integer;
+    name  : String @mandatory;
+    books : Association to many Books
+                on books.author = $self; // Books table keeps the information
+// virtual bookCount : Integer;
 }
 
 entity Chapters : cuid, managed {

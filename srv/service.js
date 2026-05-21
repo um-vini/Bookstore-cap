@@ -1,5 +1,5 @@
 const cds = require('@sap/cds');
-const { Books, Authors } = require('#cds-models/BookstoreService');
+const { Books } = require('#cds-models/BookstoreService');
 
 module.exports = class BookstoreService extends cds.ApplicationService {
   init() {
@@ -53,26 +53,26 @@ module.exports = class BookstoreService extends cds.ApplicationService {
     });
 
     //Virtual fields always afeter the after handlers
-    this.after('READ', Books, async (books, req) => {
-      const author = books[0].author?.ID;
-      
-      if (!author) {
-        return;
-      }
+    // this.after('READ', Books, async (books, req) => {
+    //   const author = books[0].author?.ID;
 
-      const bookCounts = await SELECT.from(Books)
-        .columns('author_ID', { func: 'count' })
-        .where({ author_ID: author })
-        .groupBy('author_ID');
+    //   if (!author) {
+    //     return;
+    //   }
 
-      const booksTotal = bookCounts.length > 0 ? bookCounts[0].count : 0;
+    //   const bookCounts = await SELECT.from(Books)
+    //     .columns('author_ID', { func: 'count' })
+    //     .where({ author_ID: author })
+    //     .groupBy('author_ID');
 
-      for (const book of books) {
-        if (book.author && book.author.ID === author) {
-          book.author.bookCount = booksTotal;
-        }
-      }
-    });
+    //   const booksTotal = bookCounts.length > 0 ? bookCounts[0].count : 0;
+
+    //   for (const book of books) {
+    //     if (book.author && book.author.ID === author) {
+    //       book.author.bookCount = booksTotal;
+    //     }
+    //   }
+    // });
 
     return super.init();
   }
