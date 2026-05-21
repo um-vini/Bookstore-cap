@@ -56,10 +56,10 @@ type BookStatusCode : String(1) enum {
 }
 
 entity Authors : cuid, managed {
-    name  : String @mandatory;
-    books : Association to many Books
-                on books.author = $self; // Books table keeps the information
-// virtual bookCount : Integer;
+    name              : String @mandatory;
+    books             : Association to many Books
+                            on books.author = $self; // Books table keeps the information
+    virtual bookCount : Integer;
 }
 
 entity Chapters : cuid, managed {

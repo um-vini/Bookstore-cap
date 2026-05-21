@@ -39,8 +39,8 @@ module.exports = class BookstoreService extends cds.ApplicationService {
     this.before(['CREATE', 'UPDATE'], Books, async (req) => {
       const book = req.data;
 
-      if (book.price !== undefined && book.price <= 0) {
-        req.error(400, 'Price needs to be more than 0!');
+      if (book.price !== undefined && book.price < 0) {
+        req.error(400, 'Price needs to be positive!');
       }
     });
 
@@ -53,26 +53,26 @@ module.exports = class BookstoreService extends cds.ApplicationService {
     });
 
     //Virtual fields always afeter the after handlers
-    // this.after('READ', Books, async (books, req) => {
-    //   const author = books[0].author?.ID;
+    this.after('READ', Books, async (books, req) => {
+      if (!books || books.length === 0) return;
 
-    //   if (!author) {
-    //     return;
-    //   }
+      const book = books[0];
 
-    //   const bookCounts = await SELECT.from(Books)
-    //     .columns('author_ID', { func: 'count' })
-    //     .where({ author_ID: author })
-    //     .groupBy('author_ID');
+      const authorId = book.author?.ID;
 
-    //   const booksTotal = bookCounts.length > 0 ? bookCounts[0].count : 0;
+      if (!authorId) return;
 
-    //   for (const book of books) {
-    //     if (book.author && book.author.ID === author) {
-    //       book.author.bookCount = booksTotal;
-    //     }
-    //   }
-    // });
+      const bookCounts = await SELECT.from(Books)
+        .columns('author_ID', { func: 'count' })
+        .where({ author_ID: authorId })
+        .groupBy('author_ID');
+
+      const booksTotal = bookCounts.length > 0 ? bookCounts[0].count : 0;
+
+      if (book.author) {
+        book.author.bookCount = booksTotal;
+      }
+    });
 
     return super.init();
   }
